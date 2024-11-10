@@ -130,7 +130,7 @@ char check_who_wins(char game_table[5][5])
 	}
 	if (win == 1)
 	{
-		winner_char = game_table[j][j];
+		winner_char = game_table[j][4 - j];
 		if (winner_char == 'X' || winner_char == 'O')
 		{
 			return winner_char;
@@ -153,8 +153,7 @@ char check_who_wins(char game_table[5][5])
 	return 'D';
 }
 
-
-void reset_game(char game_table[5][5], char &turn)
+void reset_game(char game_table[5][5], char turn)
 {
 	for (int i = 1; i <= 3; i++)
 	{
@@ -174,7 +173,7 @@ void run_game (char turn, char game_table[5][5])
 	choice = ' ';
 	printf("Welcome to X and O!\n\n");
 
-	while (true)
+	while (1)
 	{
 		show_game_table(game_table);
 		user_insert(turn, game_table);
